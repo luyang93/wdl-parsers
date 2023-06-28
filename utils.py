@@ -22,7 +22,7 @@ from urllib.request import urlopen
 Utility functions for generating the WDL parsers.
 """
 
-ANTLR_JAR = 'antlr-4.8-complete.jar'
+ANTLR_JAR = 'antlr-4.13.0-complete.jar'
 
 
 logger = logging.getLogger(__name__)

@@ -49,8 +49,7 @@ def generate_dev():
     download_grammar_from_github('versions/development/parsers/antlr4/WdlLexer.g4', 'WdlLexer.g4')
     download_grammar_from_github('versions/development/parsers/antlr4/WdlParser.g4', 'WdlParser.g4')
 
-    run_antlr(['-o', 'wdlparse/dev', 'WdlLexer.g4'])
-    run_antlr(['-listener', '-visitor', '-o', 'wdlparse/dev', 'WdlParser.g4'])
+    run_antlr(['-listener', '-visitor', '-o', 'wdlparse/dev', 'WdlParser.g4', 'WdlLexer.g4'])
 
 
 def generate_v1():
@@ -68,8 +67,7 @@ def generate_v1():
     download_grammar_from_github('versions/1.0/parsers/antlr4/WdlV1Lexer.g4', 'WdlV1Lexer.g4')
     download_grammar_from_github('versions/1.0/parsers/antlr4/WdlV1Parser.g4', 'WdlV1Parser.g4')
 
-    run_antlr(['-o', 'wdlparse/v1', 'WdlV1Lexer.g4'])
-    run_antlr(['-listener', '-visitor', '-o', 'wdlparse/v1', 'WdlV1Parser.g4'])
+    run_antlr(['-listener', '-visitor', '-o', 'wdlparse/v1', 'WdlV1Parser.g4', 'WdlV1Lexer.g4'])
 
 
 def generate_draft2():
@@ -91,7 +89,7 @@ def main(args=None):
     parser = argparse.ArgumentParser(description='WDL parsers generation script.')
     parser.add_argument('-v', '--version',
                         nargs='*',
-                        choices=('all', 'draft-2', '1.0', 'development', ),
+                        choices=('all', 'draft-2', '1.0', 'development',),
                         default=['all'],
                         help='version(s) to generate.')
 
