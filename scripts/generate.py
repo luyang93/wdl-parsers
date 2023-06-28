@@ -52,8 +52,7 @@ def generate_development(output_base_url: str, output_dir: str = "development"):
     download_grammar_from_github('versions/development/parsers/antlr4/WdlParser.g4', 'WdlParser.g4')
 
     output = os.path.join(output_base_url, output_dir)
-    run_antlr(['-o', output, 'WdlLexer.g4'])
-    run_antlr(['-listener', '-visitor', '-o', output, 'WdlParser.g4'])
+    run_antlr(['-listener', '-visitor', '-o', output, 'WdlParser.g4', 'WdlLexer.g4'])
 
 
 def generate_v1_0(output_base_url: str, output_dir: str = "v1_0"):
@@ -72,8 +71,7 @@ def generate_v1_0(output_base_url: str, output_dir: str = "v1_0"):
     download_grammar_from_github('versions/1.0/parsers/antlr4/WdlV1Parser.g4', 'WdlV1Parser.g4')
 
     output = os.path.join(output_base_url, output_dir)
-    run_antlr(['-o', output, 'WdlV1Lexer.g4'])
-    run_antlr(['-listener', '-visitor', '-o', output, 'WdlV1Parser.g4'])
+    run_antlr(['-listener', '-visitor', '-o', output, 'WdlV1Parser.g4', 'WdlV1Lexer.g4'])
 
 
 def generate_v1_1(output_base_url: str, output_dir: str = "v1_1"):
@@ -92,8 +90,7 @@ def generate_v1_1(output_base_url: str, output_dir: str = "v1_1"):
     download_grammar_from_github('versions/1.1/parsers/antlr4/WdlV1_1Parser.g4', 'WdlV1_1Parser.g4')
 
     output = os.path.join(output_base_url, output_dir)
-    run_antlr(['-o', output, 'WdlV1_1Lexer.g4'])
-    run_antlr(['-listener', '-visitor', '-o', output, 'WdlV1_1Parser.g4'])
+    run_antlr(['-listener', '-visitor', '-o', output, 'WdlV1_1Parser.g4', 'WdlV1_1Lexer.g4'])
 
 
 def generate_draft_2(output_base_url: str, output_dir: str = "draft_2"):
@@ -125,7 +122,7 @@ def main(args=None):
     parser = argparse.ArgumentParser(description="WDL parsers generation script.")
     parser.add_argument("--versions",
                         nargs="*",
-                        choices=("all", "draft-2", "1.0", "1.1", "development", ),
+                        choices=("all", "draft-2", "1.0", "1.1", "development",),
                         default=["all"],
                         help="version(s) to generate.")
 
