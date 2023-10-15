@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 install_requires = [
-      "antlr4-python3-runtime==4.13.0",
+      "antlr4-python3-runtime==4.13.1",
 ]
 
 dev_requires = [
@@ -13,7 +13,7 @@ with open("README.md", encoding='utf-8') as f:
 
 
 setup(name='wdl_parsers',
-      version='0.2.0',
+      version='0.2.1',
       description='WDL parsers for Python.',
       long_description=long_description,
       long_description_content_type='text/markdown',
